@@ -6,7 +6,7 @@ import './index.css';
  * @param {HTMLElement} parentTree
  * @returns
  */
-function $select (selector, tree = document.body) {
+function $select(selector, tree = document.body) {
   return tree.querySelector(selector);
 }
 
@@ -16,7 +16,7 @@ function $select (selector, tree = document.body) {
 * @param {HTMLElement} parentTree
 * @returns
 */
-function $selectAll (selector, tree = document.body) {
+function $selectAll(selector, tree = document.body) {
   return tree.querySelectorAll(selector);
 }
 
@@ -27,7 +27,7 @@ function $selectAll (selector, tree = document.body) {
 * @param {String | Boolean | undefined} value
 * @returns
 */
-function $attrib (element, attribute, value) {
+function $attrib(element, attribute, value) {
   if (value === undefined) return element.getAttribute(attribute);
 
   element.setAttribute(attribute, value);
@@ -39,7 +39,7 @@ function $attrib (element, attribute, value) {
 * @param {String} attribute
 * @returns
 */
-function $is (element, attribute) {
+function $is(element, attribute) {
   return element.hasAttribute(attribute);
 }
 
@@ -49,7 +49,7 @@ function $is (element, attribute) {
 * @param {String} attribute
 * @returns
 */
-function $prop (element, attribute) {
+function $prop(element, attribute) {
   return element.removeAttribute(attribute);
 }
 
@@ -58,7 +58,7 @@ function $prop (element, attribute) {
 * @param {String} tagName
 * @returns
 */
-function createElement (tagName) {
+function createElement(tagName) {
   return document.createElement(tagName);
 }
 
