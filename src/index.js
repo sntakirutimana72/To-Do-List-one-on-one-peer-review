@@ -5,7 +5,7 @@ import './index.css';
  * @param {String} selector
  * @param {HTMLElement} parentTree
  * @returns
- */
+*/
 function $select(selector, tree = document.body) {
   return tree.querySelector(selector);
 }
