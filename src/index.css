@@ -21,12 +21,12 @@ body {
   margin: 0;
 }
 
-.d-flex-align-center {
+.flex-align-center {
   display: flex;
   align-items: center;
 }
 
-.d-flex-column {
+.flex-column {
   display: flex;
   flex-direction: column;
 }
@@ -122,7 +122,7 @@ li button {
   cursor: move;
 }
 
-.to-do-refresh-btn,
+.refresh-btn,
 li button {
   background: none;
 }
@@ -136,12 +136,12 @@ button.fa-trash {
   color: grey;
 }
 
-.to-do-clear-btn {
+.clear-all-btn {
   padding: 15px 5px;
   width: 100%;
 }
 
-.to-do-clear-btn:disabled {
+.clear-all-btn:disabled {
   cursor: not-allowed;
 }
 

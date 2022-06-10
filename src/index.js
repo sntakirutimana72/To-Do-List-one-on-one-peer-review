@@ -63,7 +63,7 @@ function createElement(tagName) {
 }
 
 const propClearTaskTrigger = (enforce) => {
-  const trigger = $select('.to-do-clear-btn');
+  const trigger = $select('.clear-all-btn');
   const isDisabled = $is(trigger, 'disabled');
 
   if (isDisabled) {
@@ -75,66 +75,66 @@ const dataKey = 'to-do-list';
 
 class TasksManager {
   constructor() {
-    this._allTasks = [];
+    this.allTasks = [];
   }
 
   get tasks() {
-    return this._allTasks;
+    return this.allTasks;
   }
 
   get size() {
-    return this._allTasks.length;
+    return this.allTasks.length;
   }
 
   set tasks(tasks) {
-    this._allTasks = tasks;
+    this.allTasks = tasks;
 
     return this;
   }
 
   assign(task) {
-    this._allTasks.push(task);
+    this.allTasks.push(task);
 
     return this;
   }
 
   setDescription(index, description) {
-    this._allTasks[parseInt(index, 10)].description = description;
+    this.allTasks[parseInt(index, 10)].description = description;
 
     return this;
   }
 
   setState(index) {
-    const state = this._allTasks[index].completed;
-    this._allTasks[index].completed = !state;
+    const state = this.allTasks[index].completed;
+    this.allTasks[index].completed = !state;
 
     return this;
   }
 
   get hasDisabled() {
-    return this._allTasks.find(({ completed }) => completed === true) !== undefined;
+    return this.allTasks.find(({ completed }) => completed === true) !== undefined;
   }
 
   setIndex(index) {
-    this._allTasks[index].index = index;
+    this.allTasks[index].index = index;
 
     return this;
   }
 
   setShadow(index) {
-    delete this._allTasks[parseInt(index, 10)];
+    delete this.allTasks[parseInt(index, 10)];
 
     return this;
   }
 
   filter() {
-    this._allTasks = this._allTasks.filter((task) => task !== undefined);
+    this.allTasks = this.allTasks.filter((task) => task !== undefined);
 
     return this;
   }
 
   remove(index) {
-    this._allTasks.splice(index, 1);
+    this.allTasks.splice(index, 1);
 
     return this;
   }
@@ -166,7 +166,7 @@ const renderTaskTemplate = ({ index, description, completed }) => {
   const component = createElement('li');
 
   component.id = index;
-  component.classList.add('d-flex-align-center', 'row', 'task-item');
+  component.classList.add('flex-align-center', 'row', 'task-item');
 
   if (completed) component.classList.add('status-completed');
 
@@ -280,7 +280,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.forms[0].onsubmit = createNewTask;
 
-  $select('.to-do-clear-btn').onclick = removeCompletedTasks;
+  $select('.clear-all-btn').onclick = removeCompletedTasks;
 
   document.body.addEventListener('click', ({ target }) => {
     if (target.classList.contains('task-trash')) {
